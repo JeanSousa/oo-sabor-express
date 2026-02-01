@@ -6,9 +6,21 @@ class Restaurante:
         self.categoria = categoria
         self.ativo = False 
 
+    # __str__ é um dos métodos que aparecem utilizando o método __dir__ , ele é o método 
+    # procurado quando queremos printar uma classe, e aparecerá como foi implementado,
+    # por default ele tem o endereço de memória
+    # <__main__.Restaurante object at 0x799f9b3ff830>
+
+    # self = referencia da instancia atual que estamos utilizando no momento
+    # retorna o atributo nome e categoria
+    def __str__(self):
+        return f'{self.nome} | {self.categoria}'
+
     # POSSO DEFINIR O STR ASSIM E COMO VARS RETORNA UM DICT TRANSFORMO ELE EM STRING
     # def __str__(self):
     #     return str(vars(self))
+
+
 
 
 # instanciando a classe / criando objeto
@@ -17,12 +29,16 @@ restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 
 restaurantes = [restaurante_praca, restaurante_pizza]
 
+# aqui mostro o metodo str
+print(restaurante_pizza) # Pizza Express | Italiana
+print(restaurante_praca) # Praça | Gourmet
+
+
 
 # vars ira mostrar os atributos em forma de dicionario
-print(vars(restaurante_praca)) # {'nome': 'Praça', 'categoria': 'Gourmet', 'ativo': False}
-print(vars(restaurante_pizza)) # {'nome': 'Pizza Express', 'categoria': 'Italiana', 'ativo': False}
+# print(vars(restaurante_praca)) # {'nome': 'Praça', 'categoria': 'Gourmet', 'ativo': False}
+# print(vars(restaurante_pizza)) # {'nome': 'Pizza Express', 'categoria': 'Italiana', 'ativo': False}
 
-print(restaurante_pizza)
 # dir traz os métodos e atributos e como uma classe funciona
 # print(dir(restaurante_praca)) # __init__ = metodo construtor
 # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
