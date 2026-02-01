@@ -1,10 +1,14 @@
 # CLASSE EM PYTHON
 class Restaurante:
+    # atributo de classe
+    restaurantes = []
     # define que os atributos serão para esse objeto referenciado no momento
     def __init__(self, nome, categoria):
         self.nome = nome 
         self.categoria = categoria
         self.ativo = False 
+        # Atribuindo novo restaurante criado a lista atributo de classe
+        Restaurante.restaurantes.append(self)
 
     # __str__ é um dos métodos que aparecem utilizando o método __dir__ , ele é o método 
     # procurado quando queremos printar uma classe, e aparecerá como foi implementado,
@@ -20,6 +24,11 @@ class Restaurante:
     # def __str__(self):
     #     return str(vars(self))
 
+    def listar_restaurantes():
+        for restaurante in Restaurante.restaurantes:
+            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
+
+
 
 
 
@@ -27,12 +36,9 @@ class Restaurante:
 restaurante_praca = Restaurante('Praça', 'Gourmet')
 restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 
-restaurantes = [restaurante_praca, restaurante_pizza]
-
-# aqui mostro o metodo str
-print(restaurante_pizza) # Pizza Express | Italiana
-print(restaurante_praca) # Praça | Gourmet
-
+Restaurante.listar_restaurantes()
+# Praça | Gourmet | False
+# Pizza Express | Italiana | False
 
 
 # vars ira mostrar os atributos em forma de dicionario
