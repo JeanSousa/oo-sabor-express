@@ -10,7 +10,7 @@ class Restaurante:
         # Atribuindo novo restaurante criado a lista atributo de classe
         Restaurante.restaurantes.append(self)
 
-    # é um método especiial "DUNDER METHODS"
+    # é um método especiial "DUNDER METHODS" (métodos com duplo sublinhado)
     # __str__ é um dos métodos que aparecem utilizando o método __dir__ , ele é o método 
     # procurado quando queremos printar uma classe, e aparecerá como foi implementado,
     # por default ele tem o endereço de memória
