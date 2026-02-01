@@ -1,5 +1,5 @@
 # CLASSE EM PYTHON
-# classe = abstração do mundo real onde conseguimos juntar tipos diferentes
+# classe = abstração do mundo real onde conseguimos juntar tipos diferentes (atributos)
 # ex
 # nome = '' string
 # categoria = '' string
@@ -9,6 +9,7 @@ class Restaurante:
     nome = ''
     categoria = ''
     ativo = False 
+
 
 # instanciando a classe / criando objeto
 restaurante_praca = Restaurante()
