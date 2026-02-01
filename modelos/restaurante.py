@@ -1,32 +1,32 @@
 # CLASSE EM PYTHON
-# classe = abstração do mundo real onde conseguimos juntar tipos diferentes (atributos)
-# ex
-# nome = '' string
-# categoria = '' string
-# ativo = False boolean
-
 class Restaurante:
-    nome = ''
-    categoria = ''
-    ativo = False 
+    # define que os atributos serão para esse objeto referenciado no momento
+    def __init__(self, nome, categoria):
+        self.nome = nome 
+        self.categoria = categoria
+        self.ativo = False 
+
+    # POSSO DEFINIR O STR ASSIM E COMO VARS RETORNA UM DICT TRANSFORMO ELE EM STRING
+    # def __str__(self):
+    #     return str(vars(self))
 
 
 # instanciando a classe / criando objeto
-restaurante_praca = Restaurante()
-# definindo atributos do restaurante
-restaurante_praca.nome = 'Praça'
-restaurante_praca.categoria = 'Gourmet'
+restaurante_praca = Restaurante('Praça', 'Gourmet')
+restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
+
+restaurantes = [restaurante_praca, restaurante_pizza]
 
 
+# vars ira mostrar os atributos em forma de dicionario
+print(vars(restaurante_praca)) # {'nome': 'Praça', 'categoria': 'Gourmet', 'ativo': False}
+print(vars(restaurante_pizza)) # {'nome': 'Pizza Express', 'categoria': 'Italiana', 'ativo': False}
+
+print(restaurante_pizza)
 # dir traz os métodos e atributos e como uma classe funciona
-print(dir(restaurante_praca))
+# print(dir(restaurante_praca)) # __init__ = metodo construtor
 # ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
 # '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', 
 # '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__',
 #  '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'ativo', 'categoria', 'nome']
-
-# Essa função mostra um dicionario dos atributos e metodos
-print(vars(restaurante_praca)) # {'nome': 'Praça', 'categoria': 'Gourmet'} aqui ele não lista o valor de ativo
-
-print(restaurante_praca.ativo) # aqui ele lista mostrando que está armazenado mas não foi mostrado em vars
 
