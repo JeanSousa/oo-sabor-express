@@ -4,8 +4,9 @@ class Restaurante:
     restaurantes = []
     # define que os atributos serão para esse objeto referenciado no momento
     def __init__(self, nome, categoria):
-        self.nome = nome 
-        self.categoria = categoria
+        # .title() para a primeira letra ser maiuscula, também poderia ser .capitalize()
+        self._nome = nome.title()
+        self._categoria = categoria.upper() # upper todas as letras maiúsculas
         # ATIVO ESTA PROTECTED PRA NÃO DAR PROBLEMA COM A PROPERTY ATIVO DE MESMO NOME
         self._ativo = False 
         # Atribuindo novo restaurante criado a lista atributo de classe
@@ -20,7 +21,7 @@ class Restaurante:
     # self = referencia da instancia atual que estamos utilizando no momento
     # retorna o atributo nome e categoria
     def __str__(self):
-        return f'{self.nome} | {self.categoria}'
+        return f'{self._nome} | {self._categoria}'
 
     # POSSO DEFINIR O STR ASSIM E COMO VARS RETORNA UM DICT TRANSFORMO ELE EM STRING
     # def __str__(self):
@@ -31,7 +32,7 @@ class Restaurante:
         print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
         for restaurante in Restaurante.restaurantes:
             # ljust ajusta para ocupar no maximo 25 colunas
-            print(f'{restaurante.nome.ljust(25)} | {restaurante.categoria.ljust(25)} | {restaurante.ativo}')
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
 
 
     # O DECORATOR PROPERTY MODIFICA COMO UM ATRIBUTO É LIDO NO PYTHON (É COMO SE FOSSE UM PRESENTER)
@@ -48,8 +49,16 @@ class Restaurante:
 
 
 # instanciando a classe / criando objeto
-restaurante_praca = Restaurante('Praça', 'Gourmet')
-restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
+restaurante_praca = Restaurante('praça', 'Gourmet')
+
+restaurante_praca._nome = "Praça 2.0"
+
+# restaurante_praca.ativo =  True;
+# SE TENTAR ALTERAR ASSIM DA ERRO, POIS NÃO EXISTE SETTER PARA ELE
+# POIS ELE É ENCAPSULADO COMO PROTEGIDO
+# AttributeError: property 'ativo' of 'Restaurante' object has no setter
+
+restaurante_pizza = Restaurante('pizza Express', 'Italiana')
 
 Restaurante.listar_restaurantes()
 # Praça | Gourmet | False
