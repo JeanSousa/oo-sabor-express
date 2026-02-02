@@ -14,7 +14,8 @@ restaurante_praca = Restaurante('praça', 'Gourmet')
 # CRIANDO UMA AVALIAÇÃO 
 restaurante_praca.receber_avaliacao('Gui', 10)
 restaurante_praca.receber_avaliacao('Lais', 8)
-restaurante_praca.receber_avaliacao('Emy', 5)
+restaurante_praca.receber_avaliacao('Emy', 2)
+
 
 
 # 🔹 __name__ == "__main__"

@@ -39,12 +39,14 @@ class Restaurante:
     @classmethod
     def listar_restaurantes(cls):
         # Aqui abro chaves para fazer a operação no print
-        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'
+        .ljust(25)} | {'Avaliacao'.ljust(25)} | {'Status'} ')
 
         # AQUI O cls É A MESMA COISA QUE A CLASSE COM O METODO RESTAURANTES "Restaurante.restaurantes"
         for restaurante in cls.restaurantes:
             # ljust ajusta para ocupar no maximo 25 colunas
-            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes).
+            ljust(25)} | {restaurante.ativo} ')
 
 
     # O DECORATOR PROPERTY MODIFICA COMO UM ATRIBUTO É LIDO NO PYTHON (É COMO SE FOSSE UM PRESENTER)
@@ -72,7 +74,7 @@ class Restaurante:
     def media_avaliacoes(self):
         if not self._avaliacao:
             return 0
-        
+        # aqui dentro do sum tenho um list comprehension que retorna uma lista apenas com notas
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_de_notas = len(self._avaliacao)
         # arredondando com round 1 casas decimais da media
