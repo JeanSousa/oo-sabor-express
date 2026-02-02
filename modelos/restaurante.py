@@ -6,7 +6,8 @@ class Restaurante:
     def __init__(self, nome, categoria):
         self.nome = nome 
         self.categoria = categoria
-        self.ativo = False 
+        # ATIVO ESTA PROTECTED PRA NÃO DAR PROBLEMA COM A PROPERTY ATIVO DE MESMO NOME
+        self._ativo = False 
         # Atribuindo novo restaurante criado a lista atributo de classe
         Restaurante.restaurantes.append(self)
 
@@ -26,11 +27,24 @@ class Restaurante:
     #     return str(vars(self))
 
     def listar_restaurantes():
+        # Aqui abro chaves para fazer a operação no print
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
         for restaurante in Restaurante.restaurantes:
-            print(f'{restaurante.nome} | {restaurante.categoria} | {restaurante.ativo}')
+            # ljust ajusta para ocupar no maximo 25 colunas
+            print(f'{restaurante.nome.ljust(25)} | {restaurante.categoria.ljust(25)} | {restaurante.ativo}')
 
 
+    # O DECORATOR PROPERTY MODIFICA COMO UM ATRIBUTO É LIDO NO PYTHON (É COMO SE FOSSE UM PRESENTER)
+    @property
+    def ativo(self):
+        # AQUI ESTAMOS RETORNANDO O CHECK MAS NO MUNDO REAL FAZEMOS SOMAS E ETC
+        return "☒" if self._ativo == True else "☐"
+    
+    
 
+    # OBS: SE O ATRIBUTO FOR PUBLICO IRA LANÇAR ESSE ERRO
+    # AttributeError: property 'ativo' of 'Restaurante' object has no setter
+    # DA O ERRO PORQUE NO CONSTRUTOR ELE TENTA ACESSAR A PROPERTY ATIVO AI DA UMA RECURSAO
 
 
 # instanciando a classe / criando objeto
