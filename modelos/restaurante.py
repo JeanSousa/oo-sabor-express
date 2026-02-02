@@ -1,3 +1,5 @@
+from modelos.avaliacao import Avaliacao
+
 # CLASSE EM PYTHON
 class Restaurante:
     # atributo de classe
@@ -9,6 +11,11 @@ class Restaurante:
         self._categoria = categoria.upper() # upper todas as letras maiúsculas
         # ATIVO ESTA PROTECTED PRA NÃO DAR PROBLEMA COM A PROPERTY ATIVO DE MESMO NOME
         self._ativo = False 
+
+        # CRIAMOS A AVALIACAO NA CRIACAO DO RESTAURANTE, NÃO É RECEBIDA COMO PARAMETRO
+        self._avaliacao = []
+
+
         # Atribuindo novo restaurante criado a lista atributo de classe
         Restaurante.restaurantes.append(self)
 
@@ -52,6 +59,14 @@ class Restaurante:
     def alternar_estado(self):
         # PEGA A LOGICA CONTRARIA SE ESTA ATIVO VAI FICAR INANTIVO
         self._ativo = not self._ativo
+
+
+    def receber_avaliacao(self, cliente, nota):
+        # crio uma instancia de avaliação para colocar na lista
+        avaliacao = Avaliacao(cliente, nota)
+        self._avaliacao.append(avaliacao)
+
+    
 
 
 # instanciando a classe / criando objeto
