@@ -55,20 +55,20 @@ class Restaurante:
 
 
 # instanciando a classe / criando objeto
-restaurante_praca = Restaurante('praça', 'Gourmet')
-restaurante_praca.alternar_estado() # vai ficar com estado true pois era false
+# restaurante_praca = Restaurante('praça', 'Gourmet')
+# restaurante_praca.alternar_estado() # vai ficar com estado true pois era false
 
 # restaurante_praca.ativo =  True;
 # SE TENTAR ALTERAR ASSIM DA ERRO, POIS NÃO EXISTE SETTER PARA ELE
 # POIS ELE É ENCAPSULADO COMO PROTEGIDO
 # AttributeError: property 'ativo' of 'Restaurante' object has no setter
 
-restaurante_pizza = Restaurante('pizza Express', 'Italiana')
+# restaurante_pizza = Restaurante('pizza Express', 'Italiana')
 
 
 # Aqui não precisou criar uma instancia 
 # é um método da classe
-Restaurante.listar_restaurantes()
+# Restaurante.listar_restaurantes()
 # Praça | Gourmet | False
 # Pizza Express | Italiana | False
 
