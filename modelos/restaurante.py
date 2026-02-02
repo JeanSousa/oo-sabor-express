@@ -27,10 +27,15 @@ class Restaurante:
     # def __str__(self):
     #     return str(vars(self))
 
-    def listar_restaurantes():
+    # CLASS METHOD É UM DECORATOR PARA DIZER QUE SE TRATA DE UM MÉTODO DE CLASSE
+    # POR CONVENÇÃO ELE TEM O ARGUMENTO cls QUE REPRESENTA A PROPRIA CLASSE
+    @classmethod
+    def listar_restaurantes(cls):
         # Aqui abro chaves para fazer a operação no print
         print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
-        for restaurante in Restaurante.restaurantes:
+
+        # AQUI O cls É A MESMA COISA QUE A CLASSE COM O METODO RESTAURANTES "Restaurante.restaurantes"
+        for restaurante in cls.restaurantes:
             # ljust ajusta para ocupar no maximo 25 colunas
             print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
 
@@ -40,18 +45,18 @@ class Restaurante:
     def ativo(self):
         # AQUI ESTAMOS RETORNANDO O CHECK MAS NO MUNDO REAL FAZEMOS SOMAS E ETC
         return "☒" if self._ativo == True else "☐"
-    
-    
-
     # OBS: SE O ATRIBUTO FOR PUBLICO IRA LANÇAR ESSE ERRO
     # AttributeError: property 'ativo' of 'Restaurante' object has no setter
     # DA O ERRO PORQUE NO CONSTRUTOR ELE TENTA ACESSAR A PROPERTY ATIVO AI DA UMA RECURSAO
 
+    def alternar_estado(self):
+        # PEGA A LOGICA CONTRARIA SE ESTA ATIVO VAI FICAR INANTIVO
+        self._ativo = not self._ativo
+
 
 # instanciando a classe / criando objeto
 restaurante_praca = Restaurante('praça', 'Gourmet')
-
-restaurante_praca._nome = "Praça 2.0"
+restaurante_praca.alternar_estado() # vai ficar com estado true pois era false
 
 # restaurante_praca.ativo =  True;
 # SE TENTAR ALTERAR ASSIM DA ERRO, POIS NÃO EXISTE SETTER PARA ELE
@@ -60,6 +65,9 @@ restaurante_praca._nome = "Praça 2.0"
 
 restaurante_pizza = Restaurante('pizza Express', 'Italiana')
 
+
+# Aqui não precisou criar uma instancia 
+# é um método da classe
 Restaurante.listar_restaurantes()
 # Praça | Gourmet | False
 # Pizza Express | Italiana | False
