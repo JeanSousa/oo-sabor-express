@@ -1,3 +1,10 @@
-class Prato:
+from modelos.cardapio.item_cardapio import ItemCardapio
+
+# prato é herança de item cardapio, herda metodos e atributos da superclasse
+class Prato(ItemCardapio):
     def __init__(self, nome, preco, descricao):
-        pass
+        # classe prato utiliza metodos e atributos da classe superclasse
+        super().__init__(nome, preco)
+        self._descricao = descricao
+
+    
