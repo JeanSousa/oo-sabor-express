@@ -113,17 +113,38 @@ class Restaurante:
         return media
     
 
-    # def adicionar_bebida_no_cardapio(self, bebida):
-    #     self._cardapio.append(bebida)
-
-    # def adicionar_prato_no_cardapio(self, prato):
-    #     self._cardapio.append(prato)
-
     def adicionar_no_cardapio(self, item):
         # is instance verifica se é uma instancia da classe ou uma instancia da subclasse
         # nesse caso a SUBCLASSE É UMA INSTANCIA DA SUPERCLASSE
         if isinstance(item, ItemCardapio):
-            self._cardapio.apapend(item)
+            self._cardapio.append(item)
+
+    # COMO É UMA PROPRIEDADE É ACESSADA COMO UM ATRIBUTO SEM PARENTESES objeto.propriedade
+    @property 
+    def exibir_cardapio(self):
+        print(f"Cardapio do restaurante {self._nome}\n")
+
+        # USANDO ENUMERATE O i = key DA LISTA
+        # O enumerate(lista, COMEÇA EM)
+        for i,item in enumerate(self._cardapio,start=1):
+            # hasattr = VERIFICA SE UM OBJETO TEM UM ATRIBUTO
+            if hasattr(item, 'descricao'):
+                # item _nome porque cada item é um objeto e acessa o atributo nome
+                mensagem_prato = f"{i}. Nome:{item._nome} | Preço: R$ {item.
+                _preco} | Descricao: {item.descricao}"
+                
+                print(mensagem_prato)
+                continue
+            else:
+                # item _nome porque cada item é um objeto e acessa o atributo nome
+                mensagem_bebida = f"{i}. Nome:{item._nome} | Preço: R$ {item.
+                _preco} | Descricao: {item.tamanho}"
+
+                print(mensagem_bebida)
+
+
+
+
 
 # instanciando a classe / criando objeto
 # restaurante_praca = Restaurante('praça', 'Gourmet')
