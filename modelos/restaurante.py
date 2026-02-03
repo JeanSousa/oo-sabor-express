@@ -64,16 +64,17 @@ class Restaurante:
 
 
     def receber_avaliacao(self, cliente, nota):
-        # crio uma instancia de avaliação para colocar na lista
-        avaliacao = Avaliacao(cliente, nota)
-        self._avaliacao.append(avaliacao)
+        if 0 < nota <= 5:
+            # crio uma instancia de avaliação para colocar na lista
+            avaliacao = Avaliacao(cliente, nota)
+            self._avaliacao.append(avaliacao)
 
     # transformo em uma property porque vai ser acessado como um atributo 
     # pois não recebe parametros e se parecee mais com um atributo
     @property
     def media_avaliacoes(self):
         if not self._avaliacao:
-            return 0
+            return '-'
         # aqui dentro do sum tenho um list comprehension que retorna uma lista apenas com notas
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_de_notas = len(self._avaliacao)
