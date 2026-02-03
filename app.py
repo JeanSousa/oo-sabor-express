@@ -22,6 +22,10 @@ restaurante_praca = Restaurante('praça', 'Gourmet')
 bebida_suco = Bebida('Suco de melancia', 5.00, 'grande')
 prato_paozinho = Prato('Paozinho', 2.00, 'O melhor pão da cidade')
 
+# APLICANDO DESCONTOS
+bebida_suco.aplicar_desconto()
+prato_paozinho.aplicar_desconto()
+
 restaurante_praca.adicionar_no_cardapio(bebida_suco)
 restaurante_praca.adicionar_no_cardapio(prato_paozinho)
 
@@ -35,6 +39,9 @@ restaurante_praca.adicionar_no_cardapio(prato_paozinho)
 def main():
     restaurante_praca.exibir_cardapio
 
+# so permite a execucao do if se tiver rodando o proprio arquivo
+# se tiver o app.py importado em outro arquivo ele não roda essse trecho
+# se rodar o outro arquivo diretamente
 if __name__ == '__main__':
     main()
 

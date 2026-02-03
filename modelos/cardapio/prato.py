@@ -9,3 +9,8 @@ class Prato(ItemCardapio):
 
     def __str__(self):
         return self._nome 
+    
+    # POLIMORFISMO - APESAR DE MESMA SEMANTICA NA CLASSE PRINCIPAL ELE TEM
+    # IMPLEMENTAÇÕES DIFERENTES
+    def aplicar_desconto(self):
+        self._preco -= (self._preco * 0.05)
