@@ -134,7 +134,6 @@ class Restaurante:
                 _preco} | Descricao: {item.descricao}"
                 
                 print(mensagem_prato)
-                continue
             else:
                 # item _nome porque cada item é um objeto e acessa o atributo nome
                 mensagem_bebida = f"{i}. Nome:{item._nome} | Preço: R$ {item.
