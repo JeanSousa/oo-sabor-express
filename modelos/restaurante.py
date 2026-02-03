@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardapio.item_cardapio import ItemCardapio
 
 # CLASSE EM PYTHON
 class Restaurante:
@@ -112,12 +113,17 @@ class Restaurante:
         return media
     
 
-    def adicionar_bebida_no_cardapio(self, bebida):
-        self._cardapio.append(bebida)
+    # def adicionar_bebida_no_cardapio(self, bebida):
+    #     self._cardapio.append(bebida)
 
-    def adicionar_prato_no_cardapio(self, prato):
-        self._cardapio.append(prato)
+    # def adicionar_prato_no_cardapio(self, prato):
+    #     self._cardapio.append(prato)
 
+    def adicionar_no_cardapio(self, item):
+        # is instance verifica se é uma instancia da classe ou uma instancia da subclasse
+        # nesse caso a SUBCLASSE É UMA INSTANCIA DA SUPERCLASSE
+        if isinstance(item, ItemCardapio):
+            self._cardapio.apapend(item)
 
 # instanciando a classe / criando objeto
 # restaurante_praca = Restaurante('praça', 'Gourmet')
