@@ -7,7 +7,6 @@ from modelos.cardapio.prato import Prato
 
 
 
-restaurante_praca = Restaurante('praça', 'Gourmet')
 # restaurante_mexicano = Restaurante('Mexican Food', 'Mexicana')
 # restaurante_japones = Restaurante('Japa', 'Japonesa')
 # restaurante_mexicano.alternar_estado()
@@ -17,10 +16,14 @@ restaurante_praca = Restaurante('praça', 'Gourmet')
 # restaurante_praca.receber_avaliacao('Lais', 8)
 # restaurante_praca.receber_avaliacao('Emy', 2)
 
+restaurante_praca = Restaurante('praça', 'Gourmet')
+
 # CRIANDO UMA BEBIDA 
 bebida_suco = Bebida('Suco de melancia', 5.00, 'grande')
 prato_paozinho = Prato('Paozinho', 2.00, 'O melhor pão da cidade')
 
+restaurante_praca.adicionar_bebida_no_cardapio(bebida_suco)
+restaurante_praca.adicionar_prato_no_cardapio(prato_paozinho)
 
 
 # 🔹 __name__ == "__main__"
