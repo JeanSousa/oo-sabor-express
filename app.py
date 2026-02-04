@@ -4,6 +4,7 @@
 from modelos.restaurante import Restaurante
 from modelos.cardapio.bebida import Bebida
 from modelos.cardapio.prato import Prato 
+from modelos.cardapio.sobremesa import Sobremesa
 
 
 
@@ -21,13 +22,16 @@ restaurante_praca = Restaurante('praça', 'Gourmet')
 # CRIANDO UMA BEBIDA 
 bebida_suco = Bebida('Suco de melancia', 5.00, 'grande')
 prato_paozinho = Prato('Paozinho', 2.00, 'O melhor pão da cidade')
+pudim = Sobremesa('Pudim', 10.0, 'Pudim de leite condensado', 'Sobremesa', 'pequeno')
 
 # APLICANDO DESCONTOS
 bebida_suco.aplicar_desconto()
 prato_paozinho.aplicar_desconto()
+pudim.aplicar_desconto()
 
 restaurante_praca.adicionar_no_cardapio(bebida_suco)
 restaurante_praca.adicionar_no_cardapio(prato_paozinho)
+restaurante_praca.adicionar_no_cardapio(pudim)
 
 
 # 🔹 __name__ == "__main__"
