@@ -12,6 +12,10 @@ app = FastAPI()
 # usando decorator para criar rota get
 @app.get('/api/hello')
 def hello_world():
+    # docstring que aparecera no endpoint /docs
+    '''
+    Endpoint que exibe mensagem incrivel do mundo da programação
+    '''
     return {"Hello":"World"}
 
 
@@ -20,6 +24,9 @@ def hello_world():
 # iremos trabalhar com Query param então  importo query do modulo fastapi
 # Query(valor default none)
 def get_restaurantes(restaurante: str = Query(None)):
+    '''
+    Endpoint para ver os cardápios dos restaurantes
+    '''
     url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
     response = requests.get(url)
 
