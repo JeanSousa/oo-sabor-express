@@ -45,7 +45,14 @@ else:
 for nome_do_restaurante, dados in dados_restaurante.items(): # items do restaurante
     nome_do_arquivo = f'{nome_do_restaurante}.json'
     # criação do arquivo 
+
+    # WITH = GARANTE QUE O ARQUIVO SERA FECHADO MESMO SE OCORRER UM ERRO
+    # É A FORMA CORRETA E SEGURA DO PYTHON TRABALHAR COM ARQUIVOS ** Você não precisa chamar arquivo_restaurante.close().
+
+    # OPEN = ABRE OU CRIA O ARQUIVO EM MODO ESCRITA "w" SE O ARQUIVO JA EXISTIR É SOBREESCRITO
     # open(NOME ARQUIVO, OPERAÇÃO W WRITE) as alias
     with open(nome_do_arquivo, 'w') as arquivo_restaurante:
-        # modulo json cria o arquivo passando os dados, o arquivo do open e identação
+        # JSON.DUMP() = CONVERTE UM OBJETO PYTHON EM JSON
+
+        # modulo json cria o arquivo passando json.dump(dados, arquivo criado com open, identação)
         json.dump(dados, arquivo_restaurante, indent=4)
