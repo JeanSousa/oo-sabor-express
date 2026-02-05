@@ -1,5 +1,6 @@
 # Importando o modulo inteiro de requests, ja instalado no venv
 import requests
+import json
 
 
 url = 'https://guilhermeonrails.github.io/api-restaurantes/restaurantes.json'
@@ -39,3 +40,12 @@ if response.status_code == 200:
 
 else:
     print(f"O erro foi {response.status_code}")
+
+# for key, value 
+for nome_do_restaurante, dados in dados_restaurante.items(): # items do restaurante
+    nome_do_arquivo = f'{nome_do_restaurante}.json'
+    # criação do arquivo 
+    # open(NOME ARQUIVO, OPERAÇÃO W WRITE) as alias
+    with open(nome_do_arquivo, 'w') as arquivo_restaurante:
+        # modulo json cria o arquivo passando os dados, o arquivo do open e identação
+        json.dump(dados, arquivo_restaurante, indent=4)
